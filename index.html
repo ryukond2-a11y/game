@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SPEED ONLINE</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="auth-shell">
+    <div class="auth-card">
+      <div class="eyebrow">2 PLAYER CARD DUEL</div>
+      <h1 class="auth-title" id="form-title">SPEED ONLINE</h1>
+      <p class="auth-sub" id="form-sub">友達と部屋コードでつないで、リアルタイムでスピード対決。</p>
+
+      <div class="error-msg" id="error-box"></div>
+
+      <form id="auth-form">
+        <div class="field">
+          <label for="username">ユーザー名</label>
+          <input id="username" name="username" autocomplete="username" required minlength="3" />
+        </div>
+        <div class="field">
+          <label for="password">パスワード</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required minlength="6" />
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-btn">ログイン</button>
+      </form>
+
+      <div class="toggle-row">
+        <span id="toggle-text">アカウントがない場合は</span>
+        <button type="button" id="toggle-mode">新規登録</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

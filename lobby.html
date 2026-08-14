@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ロビー | SPEED ONLINE</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span>SPEED</span> <span>ONLINE</span></div>
+    <div class="userchip">
+      <span id="me-name">-</span>
+      <span id="me-record"></span>
+      <button id="logout-btn">ログアウト</button>
+    </div>
+  </div>
+
+  <div class="lobby-wrap">
+    <div class="eyebrow">LOBBY</div>
+    <h2 class="h-display" style="font-size:1.8rem;margin:6px 0 0;">対戦相手を見つける</h2>
+    <p style="color:var(--text-dim);font-size:0.9rem;">部屋を作ってコードを共有するか、もらったコードで入室してください。</p>
+
+    <div class="lobby-grid">
+      <div class="panel">
+        <h3>部屋を作る</h3>
+        <p class="desc">コードが発行されるので、友達に共有してください。</p>
+        <button class="btn btn-primary" id="create-room-btn">部屋を作成</button>
+      </div>
+      <div class="panel">
+        <h3>部屋に入る</h3>
+        <p class="desc">共有された5桁のコードを入力してください。</p>
+        <div class="field">
+          <input id="join-code-input" placeholder="例: A3F9K" maxlength="5" style="text-transform:uppercase;text-align:center;font-family:var(--font-mono);letter-spacing:0.2em;font-size:1.1rem;padding:11px;border-radius:8px;border:1px solid var(--felt-line);background:rgba(0,0,0,0.25);color:var(--text);width:100%;" />
+        </div>
+        <button class="btn btn-primary" id="join-room-btn">入室する</button>
+      </div>
+    </div>
+
+    <div class="panel" id="room-panel" style="display:none;margin-top:20px;">
+      <h3>部屋 <span id="room-code-label" style="color:var(--gold)"></span></h3>
+      <div class="room-code-display" id="room-code-big"></div>
+      <div class="player-slots">
+        <div class="slot p1" id="slot-p1">-</div>
+        <div class="slot p2 empty" id="slot-p2">相手を待っています</div>
+      </div>
+      <div class="waiting-row" id="waiting-row">
+        <span class="pulse-dot"></span>
+        <span>対戦相手の入室を待っています…</span>
+      </div>
+      <button class="btn btn-primary" id="start-game-btn" style="display:none;margin-top:10px;">対戦開始</button>
+      <button class="btn btn-ghost" id="leave-room-btn">部屋を出る</button>
+    </div>
+
+    <div class="error-msg" id="lobby-error"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/lobby.js"></script>
+</body>
+</html>

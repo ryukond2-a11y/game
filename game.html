@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>対戦中 | SPEED ONLINE</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="game-shell">
+    <div class="topbar">
+      <div class="brand"><span>SPEED</span> <span>ONLINE</span></div>
+      <div class="userchip">
+        <span id="room-code-chip"></span>
+        <button id="leave-game-btn">退出</button>
+      </div>
+    </div>
+
+    <div class="vs-strip">
+      <span class="name-p1" id="p1-name">-</span>
+      <span class="vs-x">VS</span>
+      <span class="name-p2" id="p2-name">-</span>
+    </div>
+
+    <div class="board">
+      <div class="opp-row">
+        <div class="stock p2" id="opp-stock">--</div>
+        <div class="hand-cards" id="opp-hand"></div>
+      </div>
+
+      <div class="center-row">
+        <div class="pile" id="pile-0-wrap">
+          <div class="card back" id="pile-0"></div>
+          <div class="pile-label" id="pile-0-count">0枚</div>
+        </div>
+        <div class="center-vs">×</div>
+        <div class="pile" id="pile-1-wrap">
+          <div class="card back" id="pile-1"></div>
+          <div class="pile-label" id="pile-1-count">0枚</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <button class="stuck-btn" id="stuck-btn">出せるカードがない</button>
+        <div class="status-line" id="status-line"></div>
+      </div>
+
+      <div class="my-row">
+        <div class="stock p1" id="my-stock">--</div>
+        <div class="hand-cards" id="my-hand"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spit-flash" id="spit-flash"><span>SPIT!</span></div>
+
+  <div class="overlay" id="result-overlay">
+    <div class="result-title" id="result-title">-</div>
+    <div id="result-sub" style="color:var(--text-dim);font-family:var(--font-mono);"></div>
+    <div style="display:flex;gap:12px;">
+      <button class="btn btn-primary" id="back-lobby-btn">ロビーに戻る</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/game.js"></script>
+</body>
+</html>
